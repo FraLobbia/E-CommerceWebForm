@@ -8,48 +8,107 @@ using static E_CommerceWebForm._Default;
 
 namespace E_CommerceWebForm
 {
-    public partial class About : Page
+    public partial class Dettagli : Page
     {
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            if (!IsPostBack)
-            {
-                // Controlla se c'è un parametro "id_item" nella query string
-                if (Request.QueryString["id_item"] != null)
-                {
-                    // Ottieni l'ID dall'URL della query string
-                    int itemId;
-
-                    // Ottieni la lista di prodotti dalla sessione
-                    List<Product> Products = Session["Catalogo"] as List<Product>;
-
-                   // Verifica se l'ID dall'URL è un numero valido
-                    if (int.TryParse(Request.QueryString["id_item"], out itemId))
+          protected void Page_Load(object sender, EventArgs e)
+          {
+               // Se la pagina non è stata inviata al server
+               if (!IsPostBack)
+               {
+                    // Controlla se c'è un parametro "id_item" nella query string
+                    if (Request.QueryString["id_item"] != null)
                     {
-                        // Cerca il prodotto corrispondente nella lista Products
-                        Product product = Products.FirstOrDefault(p => p.id_item == itemId);
+                        // Definisco la variabile itemId come un numero intero (int)
+                        int itemId;
 
-                        if (product != null)
+                        // Verifica se l'ID dall'URL è un numero valido (int) e lo assegna alla variabile itemId
+                        if (int.TryParse(Request.QueryString["id_item"], out itemId))
                         {
-                            ItemDetails.InnerHtml = product.Name + "<br>" + product.Price;
-                            //Esegui le azioni necessarie con il prodotto trovato
-                            // Ad esempio, puoi utilizzare product.Name, product.Price, etc.
-                            // per visualizzare le informazioni del prodotto sulla pagina "About.aspx"
+
+                            // Ottieni la lista di prodotti dalla sessione (Catalogo è il nome della variabile di sessione) 
+                            List<Product> catalogo = Session["Catalogo"] as List<Product>;
+
+                            // Cerca il prodotto corrispondente nella lista Products utilizzando l'ID specificato nella query string 
+                            Product item = catalogo.FirstOrDefault(elem => elem.id_item == itemId);
+                    
+                            if (item != null)
+                            {
+                                // Visualizza le informazioni del prodotto
+                                itemTitle.InnerText = item.Name;
+                                itemPrice.InnerText = item.Price.ToString();
+                                itemImage.ImageUrl = item.Image;                         
+                            }
+                            else
+                            {
+                                // Visualizza un messaggio di errore    
+                                itemTitle.InnerText = "Non è presente un prodotto con id " + itemId;
+                            }
                         }
                         else
                         {
-                            // Gestisci il caso in cui non viene trovato nessun prodotto con l'ID specificato
+                            itemTitle.InnerHtml = "ID non valido";
                         }
                     }
                     else
                     {
+                        // Gestisci il caso in cui non ci sia alcun parametro "id_item" nella query string
+                        itemTitle.InnerHtml = "ID non valido o non presente";
+                    }
+               }
+          }
 
+        protected void addToCart(object sender, EventArgs e)
+        {
+            Response.Write("Aggiunto al carrello");
+            // Se la variabile di sessione "Carrello" è vuota
+            if (Session["Carrello"] == null)
+            {
+
+
+                // Se c'è un parametro "id_item" nella query string
+                if (Request.QueryString["id_item"] != null)
+                {
+                    // Definisce l'ID del prodotto come un numero intero (int)
+                    int itemId;
+
+                    // Prova a convertire l'ID del prodotto in un numero intero (int) e lo assegna alla variabile itemId
+                    if (int.TryParse(Request.QueryString["id_item"], out itemId))
+                    {
+                        Session["Carrello"] = new List<Product>
+                        {
+                            new Product(itemId, itemTitle.InnerText, Convert.ToDecimal(itemPrice.InnerText), itemImage.ImageUrl),
+                        };
                     }
                 }
                 else
                 {
                     // Gestisci il caso in cui non ci sia alcun parametro "id_item" nella query string
-                    ItemDetails.InnerHtml = "ID non valido";
+                    itemTitle.InnerHtml = "ID non valido";
+                }
+            }
+            else
+            { 
+                // Se la variabile di sessione "Carrello" non è vuota definisci la
+                // variabile cartList dalla sessione "Carrello" 
+                List<Product> cartList = Session["Carrello"] as List<Product>;
+
+                // Se c'è un parametro "id_item" nella query string
+                if (Request.QueryString["id_item"] != null)
+                {
+                    // Definisce l'ID del prodotto come un numero intero (int)
+                    int itemId;
+
+                    // Prova a convertire l'ID del prodotto in un numero intero (int) e lo assegna alla variabile itemId
+                    if (int.TryParse(Request.QueryString["id_item"], out itemId))
+                    {
+                        // Aggiungi il prodotto al carrello
+                        cartList.Add(new Product(itemId, itemTitle.InnerText, Convert.ToDecimal(itemPrice.InnerText), itemImage.ImageUrl));
+                    }
+                }
+                else
+                {
+                    // Gestisci il caso in cui non ci sia alcun parametro "id_item" nella query string
+                    itemTitle.InnerHtml = "ID non valido";
                 }
             }
         }

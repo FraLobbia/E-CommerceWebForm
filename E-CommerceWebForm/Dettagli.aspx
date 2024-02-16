@@ -1,17 +1,13 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Dettagli.aspx.cs" Inherits="E_CommerceWebForm.Dettagli" %>
+﻿<%@ Page Title="Dettagli" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Dettagli.aspx.cs" Inherits="E_CommerceWebForm.About" %>
 
-<!DOCTYPE html>
+<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+    <main aria-labelledby="title">
+        <h2 id="title"><%: Title %>.</h2>
+        
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <div>
 
-        </div>
-    </form>
-</body>
-</html>
+        <p id="ItemDetails" runat="server"></p>
+
+
+    </main>
+</asp:Content>

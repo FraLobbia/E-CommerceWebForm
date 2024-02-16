@@ -11,16 +11,16 @@ namespace E_CommerceWebForm
 {
 
 
-    public partial class Dettagli
+    public partial class About
     {
 
         /// <summary>
-        /// Controllo form1.
+        /// Controllo ItemDetails.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ItemDetails;
     }
 }

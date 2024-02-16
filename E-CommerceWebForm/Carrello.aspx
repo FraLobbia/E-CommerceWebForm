@@ -3,12 +3,13 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
 
-<div ></div>
+
+    <h2>Totale Carrello:  <span id="totaleCarrello" runat="server">0</span></h2>
+
 
 <div class="container">
     <div id="containerProducts" runat="server" class="row row-cols-3 gap-2 card-group"></div>
 </div>
- 
 
 
 </asp:Content>

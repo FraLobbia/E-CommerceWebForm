@@ -1,18 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text.RegularExpressions;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
-using static E_CommerceWebForm.Global;
 
 namespace E_CommerceWebForm
 {
-    // Classe parziale _Default 
+
     public partial class _Default : Page
-    {  
+    {
         protected void Page_Load(object sender, EventArgs e)
         {
             Session["Catalogo"] = new List<Product>
@@ -31,7 +25,7 @@ namespace E_CommerceWebForm
                 // ottieni la lista di prodotti dalla sessione Catalogo
                 List<Product> catalogo = Session["Catalogo"] as List<Product>;
 
-               // Cicla la lista di prodotti e crea un elemento HTML per visualizzare le informazioni del prodotto
+                // Cicla la lista di prodotti e crea un elemento HTML per visualizzare le informazioni del prodotto
                 foreach (Product item in catalogo)
                 {
                     // Crea un nuovo elemento HTML per visualizzare le informazioni del prodotto
@@ -54,7 +48,7 @@ namespace E_CommerceWebForm
                     // Aggiungi l'elemento HTML al contenitore "containerProducts"
                     containerProducts.InnerHtml += cardHtml;
                 }
-               
+
             }
         }
     }

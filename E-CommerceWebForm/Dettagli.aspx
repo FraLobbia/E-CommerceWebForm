@@ -25,7 +25,7 @@
         
 
 
-        <asp:Button ID="addToCartButton" runat="server" Text="Aggiungi al carrello" OnClick="addToCart" />
+        <asp:Button ID="addToCartButton" CssClass="btn btn-success" runat="server" Text="Aggiungi al carrello" OnClick="addToCart" />
 
 
     </main>

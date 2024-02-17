@@ -9,7 +9,7 @@ namespace E_CommerceWebForm
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            // Creare una lista di prodotti e assegnarla alla variabile di sessione "Catalogo"
+            // Inizializza la sessione Catalogo con una lista di prodotti
             Session["Catalogo"] = new List<Product>
             {
                 new Product(1, "iPhone", 1400, "https://flaminiacomputer.it/wp-content/uploads/2022/11/iphone-14-finish-select-202209-6-1inch_AV2_GEO_EMEA.jpeg", "Ultimo modello di iPhone con fotocamera avanzata. Offre prestazioni eccezionali, design elegante e funzionalità all'avanguardia. Ideale per chi cerca un dispositivo versatile e affidabile.", "Elettronica"),
@@ -43,6 +43,9 @@ namespace E_CommerceWebForm
             CatalogoRepeater.DataBind();
         }
 
+        // Metodo per gestire il click del bottone Aggiungi al carrello
+        // Riceve l'id del prodotto da aggiungere al carrello attraverso il CommandArgument del bottone
+        // Non restituisce nulla
         protected void addToCartButton_Click(object sender, EventArgs e)
         {
 

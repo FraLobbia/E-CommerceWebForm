@@ -1,11 +1,14 @@
 ﻿body {
     background-image: url(https://media.istockphoto.com/id/1180240849/photo/teal-mint-green-blue-background-grunge-texture-paper-cotton-concrete-cement-abstract.webp?b=1&s=170667a&w=0&k=20&c=kJA88lP2eFqyQZ4Z-8pmmvPk51xYQbCzwtfyNrq3Dqg=) ;
-background-size: cover;
+    background-size: cover;
 }
 
-.card {
-    background-color: #c59965;
+.card {  
+    background-color: rgba(255, 106, 0,0.65);
     box-shadow: 10px 10px 5px #888888;
+    
 }
+
+
 
   

@@ -10,54 +10,56 @@
     <main aria-labelledby="title">
 
         <%-- div da riempire nel caso non ci sia id --%>
-        <div id="idNonTrovato" runat="server"></div> 
+        <div id="idNonTrovato" runat="server"></div>
 
 
         <div id="ContainerPage" runat="server" class="container">
-            <div runat="server" class="row row-cols-3 gap-2 card-group">
+            <div class='card border w-100'>
+                <asp:Image
+                    ID="itemImage"
+                    runat="server"
+                    class='mt-2'
+                    Style='max-height: 600px; object-fit: contain' />
+                <div
+                    class='card-body d-flex flex-column justify-content-between mt-3'>
+                    <div>
+                        <div class="d-flex gap-3 align-items-center">
 
-                <itemtemplate>
-                    <div class='card col border'>
-                        <asp:Image
-                            ID="itemImage"
-                            runat="server"
-                            Style='max-height: 200px; object-fit: contain' />
-                        <div
-                            class='card-body d-flex flex-column justify-content-between mt-3'>
-                            <div>
-                                <h1
-                                    id="itemTitle"
-                                    runat="server"
-                                    class='card-title'></h1>
-                                
-                                    <h5
-                                        ID="itemCategory"
-                                        runat="server">
-                                    </h5>
-                               
-                                <p
-                                    id="itemDescription"
-                                    runat="server"
-                                    class='card-text'></p>
-                                <p
-                                    id="itemPrice"
-                                    runat="server"
-                                    class='badge bg-secondary'>
-                                </p>
-                                <p id="qntInCart" runat="server"></p>
-                            </div>
-                            <div>
-                                <asp:Button
-                                    ID="addToCartButton"
-                                    CssClass="btn btn-success"
-                                    runat="server"
-                                    Text="Aggiungi al carrello"
-                                    OnClick="addToCartButton_Click"/>
-                            </div>
+                            <h1
+                                id="itemTitle"
+                                runat="server"
+                                class='card-title d-inline'></h1>
+                            <span
+                                id="itemPrice"
+                                runat="server"
+                                class='badge bg-secondary'>
+                            </span>
+
                         </div>
-                    </div>
-                </itemtemplate>
 
+                        <h5
+                            id="itemCategory"
+                            runat="server"></h5>
+
+                        <p
+                            id="itemDescription"
+                            runat="server"
+                            class='card-text'>
+                        </p>
+
+                        <p id="qntInCart" runat="server"></p>
+                    </div>
+
+                    <asp:Button
+                        ID="addToCartButton"
+                        CssClass="btn btn-success ms-auto p-4"
+                        runat="server"
+                        Text="Aggiungi al carrello"
+                        OnClick="addToCartButton_Click"/>
+
+
+
+                </div>
             </div>
         </div>
     </main>

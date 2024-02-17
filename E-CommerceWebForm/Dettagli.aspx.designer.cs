@@ -51,6 +51,15 @@ namespace E_CommerceWebForm
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl itemTitle;
 
         /// <summary>
+        /// Controllo itemPrice.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl itemPrice;
+
+        /// <summary>
         /// Controllo itemCategory.
         /// </summary>
         /// <remarks>
@@ -67,15 +76,6 @@ namespace E_CommerceWebForm
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl itemDescription;
-
-        /// <summary>
-        /// Controllo itemPrice.
-        /// </summary>
-        /// <remarks>
-        /// Campo generato automaticamente.
-        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl itemPrice;
 
         /// <summary>
         /// Controllo qntInCart.

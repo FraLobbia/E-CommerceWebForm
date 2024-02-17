@@ -24,14 +24,8 @@ namespace E_CommerceWebForm
         public static int GetCartQuantity()
         {
             List<Product> cartList = HttpContext.Current.Session["Carrello"] as List<Product>;
-            if (cartList == null)
-            {
-                return 0;
-            }
-            else
-            {
-                return cartList.Count;
-            }
+            if (cartList == null) { return 0; }
+            else { return cartList.Count; }
         }
 
         // Metodo per ottenere la quantità di un prodotto specifico nel carrello
@@ -40,13 +34,19 @@ namespace E_CommerceWebForm
         public static int GetCartQuantitybyID(int itemId)
         {
             List<Product> cartList = HttpContext.Current.Session["Carrello"] as List<Product>;
-            if (cartList == null)
-            {
-                return 0;
-            }
+            if (cartList == null) { return 0; }
+            else { return cartList.Count(elem => elem.id_item == itemId); }
+        }
+
+        public static decimal GetCartTotal()
+        {
+            List<Product> cartList = HttpContext.Current.Session["Carrello"] as List<Product>;
+            if (cartList == null) { return 0; } // Se la lista di prodotti nel carrello è vuota, restituisci 0
             else
             {
-                return cartList.Count(elem => elem.id_item == itemId);
+                decimal total = 0; // Inizializza il totale a 0
+                foreach (Product item in cartList) { total += item.Price; } // Calcola il totale sommando i prezzi di tutti i prodotti nel carrello
+                return total; // Restituisci il totale
             }
         }
 
@@ -67,11 +67,7 @@ namespace E_CommerceWebForm
             List<Product> cartList = HttpContext.Current.Session["Carrello"] as List<Product>;
 
             // Se la lista di prodotti nel carrello è vuota
-            if (cartList == null)
-            {
-                // Crea una nuova lista di prodotti
-                cartList = new List<Product>();
-            }
+            if (cartList == null) { cartList = new List<Product>(); } // Crea una nuova lista di prodotti
 
             // Aggiungi il prodotto alla lista di prodotti nel carrello
             cartList.Add(item);

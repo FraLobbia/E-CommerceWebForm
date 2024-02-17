@@ -10,16 +10,12 @@ namespace E_CommerceWebForm
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            // Controlla se c'è un parametro "id_item" nella query string
+            // Controlla se c'è un parametro "id_item" nella query string dell'URL
             if (Request.QueryString["id_item"] != null)
             {
-                // Definisco la variabile itemId come un numero intero (int)
-                int itemId;
-
-                // Verifica se l'ID dall'URL è un numero valido (int) e lo assegna alla variabile itemId
-                if (int.TryParse(Request.QueryString["id_item"], out itemId))
+                // Verifica se l'ID dall'URL è un numero valido (int) e lo assegna alla variabile in uscita itemId che è di tipo int
+                if (int.TryParse(Request.QueryString["id_item"], out int itemId))
                 {
-
                     // Ottieni la lista di prodotti dalla sessione (Catalogo è il nome della variabile di sessione) 
                     List<Product> catalogo = Session["Catalogo"] as List<Product>;
 
@@ -29,7 +25,7 @@ namespace E_CommerceWebForm
 
                     if (item != null)
                     {
-                        // Visualizza le informazioni del prodotto
+                        // Inserisci i dati del prodotto nei controlli della pagina
                         itemImage.ImageUrl = item.Image;
                         itemImage.AlternateText = item.Name;
                         itemTitle.InnerText = item.Name;
@@ -38,23 +34,16 @@ namespace E_CommerceWebForm
                         itemPrice.InnerText = item.Price.ToString() + " €";
                         addToCartButton.CommandArgument = item.id_item.ToString(); // serve per far funzionare l'evento click del bottone e per passare l'id del prodotto
                     }
-                    else
-                    {
-                        handleIdNotFound();
-                    }
+                    else { handleIdNotFound(); }
                 }
-                else
-                {
-                    handleIdNotFound();
-                }
+                else { handleIdNotFound(); }
             }
-            else
-            {
-                handleIdNotFound();
-            }
-
+            else { handleIdNotFound(); }
         }
 
+        // Metodo per gestire il click del bottone Aggiungi al carrello
+        // Riceve l'id del prodotto da aggiungere al carrello attraverso il CommandArgument del bottone
+        // Non restituisce nulla
         protected void addToCartButton_Click(object sender, EventArgs e)
         {
             int itemId = Convert.ToInt32((sender as Button).CommandArgument);// necessario using System.Web.UI.WebControls per usare sender as Button;
@@ -65,6 +54,8 @@ namespace E_CommerceWebForm
         }
 
         // Metodo per gestire problemi con l'ID del prodotto
+        // Non restituisce nulla
+        // Mostra un messaggio di errore e reindirizza alla pagina principale
         protected void handleIdNotFound()
         {
             idNonTrovato.InnerHtml = "<h3>ID non valido o non presente</h3>";

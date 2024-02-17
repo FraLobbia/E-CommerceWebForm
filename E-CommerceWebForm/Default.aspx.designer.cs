@@ -15,12 +15,12 @@ namespace E_CommerceWebForm
     {
 
         /// <summary>
-        /// Controllo containerProducts.
+        /// Controllo CatalogoRepeater.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl containerProducts;
+        protected global::System.Web.UI.WebControls.Repeater CatalogoRepeater;
     }
 }

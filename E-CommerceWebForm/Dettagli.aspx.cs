@@ -31,9 +31,10 @@ namespace E_CommerceWebForm
                         if (item != null)
                         {
                             // Visualizza le informazioni del prodotto
-                            itemTitle.InnerText = item.Name;
-                            itemPrice.InnerText = item.Price.ToString();
                             itemImage.ImageUrl = item.Image;
+                            itemImage.AlternateText = item.Name;
+                            itemTitle.InnerText = item.Name;
+                            itemPrice.InnerText = item.Price.ToString() + " €";
                         }
                         else
                         {
@@ -70,10 +71,14 @@ namespace E_CommerceWebForm
                     // Prova a convertire l'ID del prodotto in un numero intero (int) e lo assegna alla variabile itemId
                     if (int.TryParse(Request.QueryString["id_item"], out itemId))
                     {
+                        // rimuovo il simbolo della valuta dal prezzo
+                        string prezzo = itemPrice.InnerText;
+                        string prezzoWithoutCurrency = prezzo.Substring(0, prezzo.Length - 1);
+
                         Session["Carrello"] = new List<Product>
-                                        {
-                                            new Product(itemId, itemTitle.InnerText, Convert.ToDecimal(itemPrice.InnerText), itemImage.ImageUrl),
-                                        };
+                        {
+                            new Product(itemId, itemTitle.InnerText, Convert.ToDecimal(prezzoWithoutCurrency), itemImage.ImageUrl),
+                        };
                     }
                 }
                 else
@@ -96,11 +101,15 @@ namespace E_CommerceWebForm
                     // Definisce l'ID del prodotto come un numero intero (int)
                     int itemId;
 
+                    // rimuovo il simbolo della valuta dal prezzo
+                    string prezzo = itemPrice.InnerText;
+                    string prezzoWithoutCurrency = prezzo.Substring(0, prezzo.Length - 1);
+
                     // Prova a convertire l'ID del prodotto in un numero intero (int) e lo assegna alla variabile itemId
                     if (int.TryParse(Request.QueryString["id_item"], out itemId))
                     {
                         // Aggiungi il prodotto al carrello
-                        cartList.Add(new Product(itemId, itemTitle.InnerText, Convert.ToDecimal(itemPrice.InnerText), itemImage.ImageUrl));
+                        cartList.Add(new Product(itemId, itemTitle.InnerText, Convert.ToDecimal(prezzoWithoutCurrency), itemImage.ImageUrl));
                     }
                 }
                 else

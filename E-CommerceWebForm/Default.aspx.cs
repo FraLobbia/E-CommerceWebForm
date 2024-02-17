@@ -9,47 +9,31 @@ namespace E_CommerceWebForm
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            // Creare una lista di prodotti e assegnarla alla variabile di sessione "Catalogo"
             Session["Catalogo"] = new List<Product>
-                        {
-                        new Product(1,"iPhone", 1400, "https://flaminiacomputer.it/wp-content/uploads/2022/11/iphone-14-finish-select-202209-6-1inch_AV2_GEO_EMEA.jpeg"),
-                        new Product(2,"Macbook", 1800, "https://5.imimg.com/data5/SELLER/Default/2021/2/KQ/EU/PX/122095513/apple-laptop-i7.PNG"),
-                        new Product(3,"iPad", 1100, "https://www.juice.it/media/catalog/product/cache/7b46027f9500ccaf74b03362113ee58a/I/P/IPAD2022_1.jpeg"),
-                        new Product(4,"Nintendo Switch", 350, "https://cf-images.dustin.eu/cdn-cgi/image/format=auto,quality=75,width=828,,fit=contain/image/d200001001436703/nintendo-switch-oled.jpg"),
-
-                    };
-
-
-            // Se la pagina non è stata inviata al server 
-            if (!IsPostBack)
             {
-                // ottieni la lista di prodotti dalla sessione Catalogo
-                List<Product> catalogo = Session["Catalogo"] as List<Product>;
+                new Product(1,"iPhone", 1400, "https://flaminiacomputer.it/wp-content/uploads/2022/11/iphone-14-finish-select-202209-6-1inch_AV2_GEO_EMEA.jpeg"),
+                new Product(2,"Macbook", 1800, "https://5.imimg.com/data5/SELLER/Default/2021/2/KQ/EU/PX/122095513/apple-laptop-i7.PNG"),
+                new Product(3,"iPad", 1100, "https://www.juice.it/media/catalog/product/cache/7b46027f9500ccaf74b03362113ee58a/I/P/IPAD2022_1.jpeg"),
+                new Product(4,"Nintendo Switch", 350, "https://cf-images.dustin.eu/cdn-cgi/image/format=auto,quality=75,width=828,,fit=contain/image/d200001001436703/nintendo-switch-oled.jpg"),
+            };
 
-                // Cicla la lista di prodotti e crea un elemento HTML per visualizzare le informazioni del prodotto
-                foreach (Product item in catalogo)
-                {
-                    // Crea un nuovo elemento HTML per visualizzare le informazioni del prodotto
-                    string cardHtml = $@"
-                                        <div class='card col border'>
-                                            <img src='{item.Image}' class='card-img-top' alt='{item.Name}' style='max-height:200px;object-fit:contain'>
+            // ottieni la lista di prodotti dalla sessione Catalogo
+            List<Product> catalogo = Session["Catalogo"] as List<Product>;
 
-                                            <div class='card-body d-flex flex-column justify-content-between mt-3'>                                               
-                                                <div>    
-                                                    <h5 class='card-title'>{item.Name}</h5>
-                                                    <p class='card-text'>Prezzo: {item.Price}</p>
-                                                </div>  
-                                                
-                                                <div>
-                                                   <a href='Dettagli.aspx?id_item={item.id_item}' class='btn btn-primary mt-4'>Dettagli</a>
-                                                </div>   
-                                            </div>
-                                        </div>";
+            // Assegna la lista di prodotti al controllo Repeater 
+            CatalogoRepeater.DataSource = catalogo;
+            // Visualizza i prodotti nella pagina 
+            CatalogoRepeater.DataBind();
+        }
 
-                    // Aggiungi l'elemento HTML al contenitore "containerProducts"
-                    containerProducts.InnerHtml += cardHtml;
-                }
+        protected void addToCartButton_Click(object sender, EventArgs e)
+        {
 
-            }
+            // int itemId = Convert.ToInt32((sender as Button).CommandArgument);// necessario using System.Web.UI.WebControls per usare sender as Button;
+            // Aggiungi il prodotto al carrello
+            // Response.Write(itemId + " Aggiunto al carrello<br>");
+            // Cart.AddToCart(itemId);
         }
     }
 }

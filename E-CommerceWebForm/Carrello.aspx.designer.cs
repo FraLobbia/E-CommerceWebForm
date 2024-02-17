@@ -24,12 +24,21 @@ namespace E_CommerceWebForm
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl totaleCarrello;
 
         /// <summary>
-        /// Controllo containerProducts.
+        /// Controllo CartListRow.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl containerProducts;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl CartListRow;
+
+        /// <summary>
+        /// Controllo CarrelloRepeater.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater CarrelloRepeater;
     }
 }

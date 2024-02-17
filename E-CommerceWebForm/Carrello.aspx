@@ -4,7 +4,8 @@
     MasterPageFile="~/Site.Master"
     AutoEventWireup="true"
     CodeBehind="Carrello.aspx.cs"
-    Inherits="E_CommerceWebForm.Carrello" %>
+    Inherits="E_CommerceWebForm.Carrello"
+     %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
@@ -33,10 +34,17 @@
                                  <%# Eval("Price") %> €
                                     </p>
                                 </div>
-                                <div>
+                                <div class="mt-4">
                                     <a
                                         href='Dettagli.aspx?id_item=<%# Eval("id_item") %>'
-                                        class='btn btn-primary mt-4'>Dettagli</a>
+                                        class='btn btn-primary'>Dettagli</a>
+<%-- Per far funzionare il button delete dentro il repeater serve inserire in web.config <pages enableEventValidation="false">  --%>
+                                    <asp:Button
+                                        CssClass="btn btn-danger"
+                                        runat="server"
+                                        Text="Rimuovi"
+                                        OnClick="DeleteButton_Click"
+                                        CommandArgument='<%# Eval("id_item") %>' />
                                 </div>
                             </div>
                         </div>
@@ -45,5 +53,4 @@
             </asp:Repeater>
         </div>
     </div>
-
 </asp:Content>

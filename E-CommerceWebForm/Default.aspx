@@ -36,11 +36,11 @@
                                         href='Dettagli.aspx?id_item=<%# Eval("id_item") %>'
                                         class='btn btn-primary'>Dettagli</a>
                                     <asp:Button
-                                        ID="addToCartButton"
                                         OnClick="addToCartButton_Click"
                                         CssClass="btn btn-success"
                                         runat="server"
-                                        Text="Aggiungi al carrello" />
+                                        Text="Aggiungi al carrello"
+                                        CommandArgument='<%# Eval("id_item") %>' />
                                 </div>
                             </div>
                         </div>

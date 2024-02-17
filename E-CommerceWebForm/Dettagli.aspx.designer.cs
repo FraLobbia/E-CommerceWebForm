@@ -15,6 +15,24 @@ namespace E_CommerceWebForm
     {
 
         /// <summary>
+        /// Controllo idNonTrovato.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl idNonTrovato;
+
+        /// <summary>
+        /// Controllo ContainerPage.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ContainerPage;
+
+        /// <summary>
         /// Controllo itemImage.
         /// </summary>
         /// <remarks>
@@ -33,6 +51,24 @@ namespace E_CommerceWebForm
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl itemTitle;
 
         /// <summary>
+        /// Controllo itemCategory.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl itemCategory;
+
+        /// <summary>
+        /// Controllo itemDescription.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl itemDescription;
+
+        /// <summary>
         /// Controllo itemPrice.
         /// </summary>
         /// <remarks>
@@ -40,6 +76,15 @@ namespace E_CommerceWebForm
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl itemPrice;
+
+        /// <summary>
+        /// Controllo qntInCart.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl qntInCart;
 
         /// <summary>
         /// Controllo addToCartButton.

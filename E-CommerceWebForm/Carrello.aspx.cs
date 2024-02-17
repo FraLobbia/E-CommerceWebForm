@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.UI;
-
+using System.Web.UI.WebControls;
 namespace E_CommerceWebForm
 {
     // Classe parziale Carrello 
@@ -33,13 +33,25 @@ namespace E_CommerceWebForm
             {
                 // Se la lista di prodotti è vuota
                 CartListRow.InnerHtml = "<h3>Il carrello è vuoto</h3>";
+
+                // redirect alla pagina principale dopo 5 secondi
+                //Response.AddHeader("REFRESH", "5;URL=Default.aspx");
+                Response.Redirect("Default.aspx"); // todo: impostare riga sopra e cancellare questa dopo debugging
             }
 
         }
 
-        protected void handleDelete(object sender, EventArgs e)
+        protected void DeleteButton_Click(object sender, EventArgs e)
         {
-            // da finire
+
+            //Ottieni l'ID del prodotto da rimuovere dal carrello
+            int itemId = Convert.ToInt32((sender as Button).CommandArgument);
+
+            //Rimuovi il prodotto dal carrello
+            Cart.RemoveFromCart(itemId);
+
+            // refresh la pagina per visualizzare il carrello aggiornato
+            Response.Redirect(Request.RawUrl); // Request.RawUrl restituisce l'URL della pagina corrente
         }
     }
 }

@@ -6,11 +6,6 @@ namespace E_CommerceWebForm
 {
     public static class Cart
     {
-        public static void getTest()
-        {
-            HttpContext.Current.Response.Write("Test");
-        }
-
 
         // Metodo per ottenere la lista di prodotti dal carrello
         // Non richiede alcun input
@@ -21,6 +16,38 @@ namespace E_CommerceWebForm
             // !!! HttpContext.Current è necessario per accedere alla sessione in un metodo statico 
             List<Product> cartList = HttpContext.Current.Session["Carrello"] as List<Product>;
             return cartList;
+        }
+
+        // Metodo per ottenere la quantità di prodotti nel carrello
+        // Non richiede alcun input
+        // Restituisce un intero che rappresenta la quantità di prodotti nel carrello
+        public static int GetCartQuantity()
+        {
+            List<Product> cartList = HttpContext.Current.Session["Carrello"] as List<Product>;
+            if (cartList == null)
+            {
+                return 0;
+            }
+            else
+            {
+                return cartList.Count;
+            }
+        }
+
+        // Metodo per ottenere la quantità di un prodotto specifico nel carrello
+        // Prende in input l'ID del prodotto
+        // Restituisce un intero che rappresenta la quantità del prodotto specificato nel carrello
+        public static int GetCartQuantitybyID(int itemId)
+        {
+            List<Product> cartList = HttpContext.Current.Session["Carrello"] as List<Product>;
+            if (cartList == null)
+            {
+                return 0;
+            }
+            else
+            {
+                return cartList.Count(elem => elem.id_item == itemId);
+            }
         }
 
         // Metodo per aggiungere un prodotto al carrello

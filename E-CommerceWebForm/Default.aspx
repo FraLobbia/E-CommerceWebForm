@@ -24,12 +24,12 @@
                                 <div>
                                     <a href='Dettagli.aspx?id_item=<%# Eval("id_item") %>'>
                                         <h5
-                                            class='card-title'>
+                                            class='card-title fs-4'>
                                             <%#Eval("Name") %></h5>
                                     </a>
 
                                     <p
-                                        class='card-text badge bg-gradient'>
+                                        class='card-text badge bg-gradient p-1'>
                                         Prezzo: 
                                     <%# Eval("Price") %> €
                                     </p>
@@ -37,7 +37,7 @@
                                 <div class="mt-4 d-flex justify-content-center gap-2 flex-wrap">
                                     <a
                                         href='Dettagli.aspx?id_item=<%# Eval("id_item") %>'
-                                        class='btn btn-primary'>Dettagli</a>
+                                        class='btn btn-secondary'>Dettagli</a>
                                     <asp:Button
                                         OnClick="addToCartButton_Click"
                                         CssClass="btn btn-success"

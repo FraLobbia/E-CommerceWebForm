@@ -54,10 +54,10 @@
                     <div class='col d-flex flex-column justify-content-center align-items-center gap-4'>
                         <a
                             href='Dettagli.aspx?id_item=<%# Eval("id_item") %>'
-                            class='btn btn-primary p-3'>Dettagli</a>
+                            class='btn btn-secondary px-3'>Dettagli</a>
                         <%-- Per far funzionare il button delete dentro il repeater serve inserire in web.config <pages enableEventValidation="false">  --%>
                         <asp:Button
-                            CssClass="btn btn-danger p-3"
+                            CssClass="btn btn-danger px-3"
                             runat="server"
                             Text="Rimuovi"
                             OnClick="DeleteButton_Click"

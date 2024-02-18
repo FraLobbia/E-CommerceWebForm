@@ -15,6 +15,11 @@
 
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+   <%-- <link href="~/Content/bootstrap.css" rel="stylesheet" />--%>
+    <%-- link a cartella Style.min.css  --%>
+    <link href="~/Sass/Style.min.css" rel="stylesheet" />
+
+
 
 </head>
 <body>

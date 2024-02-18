@@ -1,6 +1,9 @@
-﻿/* Wrapping element */
+﻿@import "_bootstrapOverrides.scss";
+/* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
-.body-content {
+.body-content
+
+{
     margin-top: 15px;
     padding-left: 15px;
     padding-right: 15px;
@@ -20,7 +23,7 @@ textarea {
         padding: 0;
     }
 }
-
+ 
 body {
     background-image: url(https://media.istockphoto.com/id/1180240849/photo/teal-mint-green-blue-background-grunge-texture-paper-cotton-concrete-cement-abstract.webp?b=1&s=170667a&w=0&k=20&c=kJA88lP2eFqyQZ4Z-8pmmvPk51xYQbCzwtfyNrq3Dqg=);
     background-size: cover;
@@ -32,31 +35,34 @@ body {
     box-shadow: 10px 10px 5px #888888;
 }
 
-    .card:hover {
-        transition-duration: 0.5s;
-        transform: scale(1.005);
-    }
+.card > img, .card-img-top {
+    max-height: 200px;
+    object-fit: cover; /* Scala l'immagine per riempire il contenitore mantenendo le proporzioni */
+}
 
+.card > img.col:hover {
+    cursor: pointer;
+}
+
+.btn {
+    box-shadow: 5px 5px 5px rgb(86, 86, 86);
+}
+
+.card:hover {
+    transition-duration: 0.5s;
+    transform: scale(1.005);
+}
 
 a {
     color: unset;
     text-decoration: none;
 }
 
-    a:hover {
-        text-decoration: underline;
-        color: darkgoldenrod;
-    }
-
-.card > img, .card-img-top {
-    max-height: 200px;
-    object-fit: cover; /* Scala l'immagine per riempire il contenitore mantenendo le proporzioni */
+a.btn:hover {
+    text-decoration: none;
 }
 
-    .card > img:hover {
-        cursor: pointer;
-    }
-
-
-
-  
+a:hover {
+    text-decoration: underline;
+    color: darkgoldenrod;
+}

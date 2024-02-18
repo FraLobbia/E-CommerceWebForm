@@ -7,9 +7,27 @@
     Inherits="E_CommerceWebForm.Carrello" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <h2>Totale Carrello:  <span id="totaleCarrello" runat="server">0</span> €</h2>
-    <div class="container" id="cartContainer" runat="server">
 
+    <div class="container">
+        <div class="card flex-row justify-content-around align-items-center py-4 row">
+            <div class="col">
+                <h2>Totale Carrello:  <span id="totaleCarrello" runat="server">0</span> €</h2>
+            </div>
+            <div id="Riepilogo" runat="server" class="col">
+            </div>
+            <div class="col d-flex flex-column justify-content-center align-items-center">
+                <asp:Button
+                    ID="ClearCartButton"
+                    runat="server"
+                    Text="Svuota Carrello"
+                    CssClass="btn btn-danger"
+                    OnClick="ClearCartButton_Click" />
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container" id="cartContainer" runat="server">
         <asp:Repeater ID="CarrelloRepeater" runat="server">
             <ItemTemplate>
 
@@ -17,6 +35,7 @@
                    
                         <img
                             src='<%# Eval("Image") %>'
+                            onclick='location.href="Dettagli.aspx?id_item=<%# Eval("id_item") %>"'
                             class='col'
                             alt='<%# Eval("Name") %>'>
 
@@ -29,7 +48,7 @@
                             Prezzo: 
                                  <%# Eval("Price") %> €
                         </p>
-                        <p>Quantità nel carrello: <%# Eval("QuantityInCart") %></p>
+                        <p class="fs-3">Quantità nel carrello: <%# Eval("QuantityInCart") %></p>
                     </div>
 
                     <div class='col d-flex flex-column justify-content-center align-items-center gap-4'>

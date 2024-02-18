@@ -24,6 +24,24 @@ namespace E_CommerceWebForm
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl totaleCarrello;
 
         /// <summary>
+        /// Controllo Riepilogo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Riepilogo;
+
+        /// <summary>
+        /// Controllo ClearCartButton.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ClearCartButton;
+
+        /// <summary>
         /// Controllo cartContainer.
         /// </summary>
         /// <remarks>

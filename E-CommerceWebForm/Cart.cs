@@ -96,5 +96,14 @@ namespace E_CommerceWebForm
             // Assegna la lista di prodotti nel carrello alla sessione Carrello
             HttpContext.Current.Session["Carrello"] = cartList;
         }
+
+        // svuota il carrello
+        // Non restituisce nulla 
+        public static void ClearCart()
+        {
+            HttpContext.Current.Session["Carrello"] = null;
+            //Aggiorna la pagina
+            HttpContext.Current.Response.Redirect(HttpContext.Current.Request.Url.ToString(), true);
+        }
     }
 }

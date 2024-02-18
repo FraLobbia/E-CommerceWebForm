@@ -30,7 +30,7 @@ namespace E_CommerceWebForm
             else
             {
                 // Se la lista di prodotti è vuota
-                cartContainer.InnerHtml = "<h3>Il carrello è vuoto</h3>";
+                Riepilogo.InnerHtml = "<h3>Il carrello è vuoto</h3>";
 
                 // redirect alla pagina principale dopo 5 secondi
                 Response.AddHeader("REFRESH", "5;URL=Default.aspx");
@@ -50,6 +50,11 @@ namespace E_CommerceWebForm
 
             // refresh la pagina per visualizzare il carrello aggiornato
             Response.Redirect(Request.RawUrl); // Request.RawUrl restituisce l'URL della pagina corrente
+        }
+
+        protected void ClearCartButton_Click(object sender, EventArgs e)
+        {
+            Cart.ClearCart();
         }
     }
 }

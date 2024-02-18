@@ -13,7 +13,7 @@
             <asp:Repeater ID="CatalogoRepeater" runat="server">
                 <ItemTemplate>
                     <div class="col-6 col-md-4 col-lg-3">
-                        <div class='card border'>
+                        <div class='card border h-100'>
                             <a href='Dettagli.aspx?id_item=<%# Eval("id_item") %>'>
                                 <img
                                     src='<%# Eval("Image") %>'

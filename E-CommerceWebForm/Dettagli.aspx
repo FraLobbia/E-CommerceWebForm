@@ -32,7 +32,7 @@
                             <span
                                 id="itemPrice"
                                 runat="server"
-                                class='badge bg-secondary'>
+                                class='badge bg-info text-bg-info p-2 fs-5'>
                             </span>
 
                         </div>
@@ -47,7 +47,7 @@
                             class='card-text'>
                         </p>
                         <a href='Carrello.aspx'>
-                        <p id="qntInCart" runat="server"></p></a>
+                        <p id="qntInCart" runat="server" class="text-end"></p></a>
                     </div>
 
                     <asp:Button

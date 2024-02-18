@@ -31,6 +31,11 @@ namespace E_CommerceWebForm
                         itemTitle.InnerText = item.Name;
                         itemCategory.InnerText = item.Category;
                         itemDescription.InnerText = item.Description;
+                        int qntNelCarrello = item.QuantityInCart;
+                        if (qntNelCarrello > 0)
+                        {
+                            qntInCart.InnerText = "Quantità nel carrello: " + qntNelCarrello.ToString();
+                        }
                         itemPrice.InnerText = item.Price.ToString() + " €";
                         addToCartButton.CommandArgument = item.id_item.ToString(); // serve per far funzionare l'evento click del bottone e per passare l'id del prodotto
                     }

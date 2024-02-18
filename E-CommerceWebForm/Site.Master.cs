@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
+
 
 namespace E_CommerceWebForm
 {
@@ -11,7 +8,10 @@ namespace E_CommerceWebForm
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            // ottieni quantità di prodotti nel carrello
+            int cartQuantity = Cart.GetCartQuantity();
+            // Visualizza la quantità di prodotti nel carrello
+            CarrelloNavbar.InnerText = "Carrello (" + cartQuantity.ToString() + " units)";
         }
     }
 }

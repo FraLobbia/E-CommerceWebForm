@@ -14,17 +14,20 @@
                 <ItemTemplate>
                     <div class="col-6 col-md-4 col-lg-3">
                         <div class='card border'>
-                            <img
-                                src='<%# Eval("Image") %>'
-                                class='card-img-top pt-2'
-                                alt='<%# Eval("Name") %>'
-                                style='max-height: 200px; object-fit: contain'>
+                            <a href='Dettagli.aspx?id_item=<%# Eval("id_item") %>'>
+                                <img
+                                    src='<%# Eval("Image") %>'
+                                    class='card-img-top pt-2'
+                                    alt='<%# Eval("Name") %>'></a>
 
                             <div class='card-body d-flex flex-column justify-content-between mt-3'>
                                 <div>
-                                    <h5
-                                        class='card-title'>
-                                        <%#Eval("Name") %></h5>
+                                    <a href='Dettagli.aspx?id_item=<%# Eval("id_item") %>'>
+                                        <h5
+                                            class='card-title'>
+                                            <%#Eval("Name") %></h5>
+                                    </a>
+
                                     <p
                                         class='card-text badge bg-gradient'>
                                         Prezzo: 

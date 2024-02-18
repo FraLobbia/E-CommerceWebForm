@@ -74,6 +74,9 @@ namespace E_CommerceWebForm
 
             // Assegna la lista di prodotti nel carrello alla sessione Carrello
             HttpContext.Current.Session["Carrello"] = cartList;
+
+            //Aggiorna la pagina
+            HttpContext.Current.Response.Redirect(HttpContext.Current.Request.Url.ToString(), true);
         }
 
         // Metodo per rimuovere un prodotto dal carrello

@@ -14,22 +14,22 @@
             <ItemTemplate>
 
                 <div class='row card flex-row my-2'>
-
-                    <img
-                        src='<%# Eval("Image") %>'
-                        class='col'
-                        alt='<%# Eval("Name") %>'
-                        style='max-height: 200px; object-fit: contain'>
+                   
+                        <img
+                            src='<%# Eval("Image") %>'
+                            class='col'
+                            alt='<%# Eval("Name") %>'>
 
                     <div class='col d-flex flex-column justify-content-center'>
-                        <h3
-                            >
-                            <%# Eval("Name") %></h3>
-                        <p
-                            >
+                        <a href='Dettagli.aspx?id_item=<%# Eval("id_item") %>'>
+                            <h3>
+                                <%# Eval("Name") %></h3>
+                        </a>
+                        <p>
                             Prezzo: 
                                  <%# Eval("Price") %> €
                         </p>
+                        <p>Quantità nel carrello: <%# Eval("QuantityInCart") %></p>
                     </div>
 
                     <div class='col d-flex flex-column justify-content-center align-items-center gap-4'>

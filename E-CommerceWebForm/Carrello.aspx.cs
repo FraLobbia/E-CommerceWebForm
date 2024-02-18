@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 namespace E_CommerceWebForm
@@ -15,8 +16,11 @@ namespace E_CommerceWebForm
             // Se la lista di prodotti non è vuota
             if (cartList != null)
             {
+                // in cartlist voglio solo i prodotti che sono nel carrello senza ripeterli
+                List<Product> cartListUnique = cartList.Distinct().ToList(); // Distinct() restituisce una sequenza che contiene solo i primi elementi distinti in base all'ID del prodotto
+
                 // Assegna la lista di prodotti nel carrello al controllo Repeater 
-                CarrelloRepeater.DataSource = cartList;
+                CarrelloRepeater.DataSource = cartListUnique;
                 // Visualizza i prodotti nella pagina 
                 CarrelloRepeater.DataBind();
 

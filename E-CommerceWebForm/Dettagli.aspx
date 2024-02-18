@@ -46,8 +46,8 @@
                             runat="server"
                             class='card-text'>
                         </p>
-
-                        <p id="qntInCart" runat="server"></p>
+                        <a href='Carrello.aspx'>
+                        <p id="qntInCart" runat="server"></p></a>
                     </div>
 
                     <asp:Button

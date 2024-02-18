@@ -29,12 +29,11 @@
                                 id="itemTitle"
                                 runat="server"
                                 class='card-title d-inline'></h1>
+
                             <span
                                 id="itemPrice"
                                 runat="server"
-                                class='badge bg-info text-bg-info p-2 fs-5'>
-                            </span>
-
+                                class='badge bg-info text-bg-info p-2 fs-5'></span>
                         </div>
 
                         <h5
@@ -46,8 +45,11 @@
                             runat="server"
                             class='card-text'>
                         </p>
+
                         <a href='Carrello.aspx'>
-                        <p id="qntInCart" runat="server" class="text-end"></p></a>
+                            <p id="qntInCart" runat="server" class="text-end"></p>
+                        </a>
+
                     </div>
 
                     <asp:Button
@@ -55,10 +57,7 @@
                         CssClass="btn btn-success ms-auto p-4"
                         runat="server"
                         Text="Aggiungi al carrello"
-                        OnClick="addToCartButton_Click"/>
-
-
-
+                        OnClick="addToCartButton_Click" />
                 </div>
             </div>
         </div>
